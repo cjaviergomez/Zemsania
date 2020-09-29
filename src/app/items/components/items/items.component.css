@@ -1,0 +1,11 @@
+th {
+  overflow-wrap: break-word;
+  text-align: center;
+  word-wrap: break-word;
+}
+td {
+  overflow-wrap: break-word;
+  text-align: left;
+  word-wrap: break-word;
+  vertical-align: baseline;
+}

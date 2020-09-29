@@ -1,0 +1,121 @@
+<div class="p-grid">
+  <div class="card card-w-title">
+    <p-button
+      label="Back"
+      icon="pi pi-arrow-left"
+      (click)="goToBack()"
+    ></p-button>
+    <h3 style="text-align: center">{{ title }}</h3>
+    <form
+      #formRegistro="ngForm"
+      (ngSubmit)="onSubmit(formRegistro)"
+      novalidate=""
+    >
+      <div class="p-grid p-fluid" style="margin: 0 10rem 0 10rem">
+        <div class="p-col-12 p-md-4" style="margin: 0 0 1rem 0">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
+            <input
+              type="text"
+              pInputText
+              #inputTitle="ngModel"
+              name="inputTitle"
+              required
+              placeholder="Title"
+              [(ngModel)]="item.title"
+              [ngClass]="{
+                'p-invalid':
+                  formRegistro.submitted &&
+                  formRegistro.controls['inputTitle'].errors
+              }"
+            />
+            <div
+              class="invalid-feedback"
+              style="margin-left: 4px"
+              *ngIf="
+                formRegistro.submitted &&
+                formRegistro.controls['inputTitle'].errors
+              "
+            >
+              <p-message
+                severity="error"
+                text="Title is not available."
+              ></p-message>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12 p-md-4" style="margin: 0 0 1rem 0">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"
+              ><i class="pi pi-bookmark"></i
+            ></span>
+            <input
+              type="text"
+              #inputAbout="ngModel"
+              name="inputAbout"
+              required
+              pInputText
+              placeholder="About"
+              [(ngModel)]="item._about"
+              [ngClass]="{
+                'p-invalid':
+                  formRegistro.submitted &&
+                  formRegistro.controls['inputAbout'].errors
+              }"
+            />
+            <div
+              class="invalid-feedback"
+              style="margin-left: 4px"
+              *ngIf="
+                formRegistro.submitted &&
+                formRegistro.controls['inputAbout'].errors
+              "
+            >
+              <p-message
+                severity="error"
+                text="About is not available."
+              ></p-message>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12 p-md-4" style="margin: 0 0 1rem 0">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">www</span>
+            <input
+              type="text"
+              #inputAcces="ngModel"
+              name="inputAcces"
+              required
+              pInputText
+              placeholder="AccessURL"
+              [(ngModel)]="item.accessURL"
+              [ngClass]="{
+                'p-invalid':
+                  formRegistro.submitted &&
+                  formRegistro.controls['inputAcces'].errors
+              }"
+            />
+            <div
+              class="invalid-feedback"
+              style="margin-left: 4px"
+              *ngIf="
+                formRegistro.submitted &&
+                formRegistro.controls['inputAcces'].errors
+              "
+            >
+              <p-message
+                severity="error"
+                text="AccessURL is not available."
+              ></p-message>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-2 p-md-2">
+          <p-button type="submit" label="Submit"></p-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
